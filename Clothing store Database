@@ -1,0 +1,34 @@
+--Created a clothing store database
+
+CREATE TABLE shirts(id INTEGER PRIMARY KEY, Clothing TEXT, Size TEXT, Cost INTEGER, Color TEXT); INSERT INTO shirts VALUES (1, "shirt", "small", 30, "purple");
+INSERT INTO shirts VALUES (2, "shirt", "medium", 15, "yellow");
+INSERT INTO shirts VALUES (3, "shirt", "large ", 20, "blue");
+INSERT INTO shirts VALUES (4, "shirt", "x-large", 25, "green");
+INSERT INTO shirts VALUES (5, "shirt", "2x-large", 45, "rainbow");
+SELECT * FROM shirts WHERE Cost ORDER BY Cost;
+SELECT SUM(cost) FROM shirts;
+
+--Dispalyed the database ordered by the cost of the shirts
+--Broke up each section of clothes into different tables 
+
+
+CREATE TABLE pants(id INTEGER PRIMARY KEY, Clothing TEXT, Size TEXT, Cost INTEGER, Material TEXT); INSERT INTO pants VALUES (1, "pants", "small", 80, "Khaki");
+INSERT INTO pants VALUES (2, "pants", "medium", 70, "Jeans");
+INSERT INTO pants VALUES (3, "pants", "large ", 120, "Leather");
+INSERT INTO pants VALUES (4, "pants", "x-large", 25, "Leggings");
+INSERT INTO pants VALUES (5, "pants", "2x-large", 30, "Joggers");
+SELECT * FROM pants WHERE Cost ORDER BY Cost;
+SELECT SUM(cost) FROM pants;
+
+--Displayed the database ordered by the cost of the pants
+
+CREATE TABLE shoes(id INTEGER PRIMARY KEY, Clothing TEXT, Size INTEGER, Cost INTEGER, Color TEXT); INSERT INTO shoes VALUES (1, "shoes", 10, 100, "purple");
+INSERT INTO shoes VALUES (2, "shoes", 8.5, 150, "yellow");
+INSERT INTO shoes VALUES (3, "shoes", 2, 200, "blue");
+INSERT INTO shoes VALUES (4, "shoes", 10.5, 250, "green");
+INSERT INTO shoes VALUES (5, "shoes", 13.5, 300, "rainbow");
+SELECT * FROM shoes WHERE Size ORDER BY Size;
+SELECT * FROM shoes WHERE Cost ORDER BY Cost;
+SELECT SUM(Cost) FROM shoes;
+
+--Displayed the database ordered by the size and cost of the shoes 
