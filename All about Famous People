@@ -1,0 +1,37 @@
+/* Create table about the people and what they do here */
+
+--Created a table that shows the famous people I chose
+
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY, fullname TEXT);
+
+INSERT INTO famous_people VALUES (1, "Kevin Hart");
+INSERT INTO famous_people VALUES (2, "Brent Faiyaz");
+INSERT INTO famous_people VALUES (3, "Jaleel Skinner");
+
+--Created a table to showcase their 
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY,persons_id INTEGER, name TEXT);
+
+INSERT INTO hobbies (persons_id, name) VALUES (1, "act");
+INSERT INTO hobbies (persons_id, name) VALUES (2, "sing");
+INSERT INTO hobbies (persons_id, name) VALUES (3, "play basketball");
+
+--Created a table to show who their wives are 
+
+CREATE TABLE wives (id INTEGER PRIMARY KEY, firstname TEXT, husband_id INTEGER);
+
+INSERT INTO wives (husband_id, firstname) VALUES (1, "Eniko");
+INSERT INTO wives (husband_id, firstname) VALUES (2, "Katrina");
+INSERT INTO wives (husband_id, firstname) VALUES (3, "Isabella");
+
+-- Showed what their hobbies are beside their names 
+
+SELECT f.fullname AS Name, h.name AS Hobbies FROM famous_people f
+JOIN hobbies h
+ON f.id=h.persons_id;
+
+-- Showed who their wives are beside their names by joining tables
+
+SELECT f.fullname AS Name, w.firstname AS Wife FROM famous_people f
+JOIN wives w
+ON f.id=w.husband_id
