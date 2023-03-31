@@ -1,0 +1,39 @@
+--Here are some examples that I have done 
+
+--#1.Show only the Customers from Brazil.
+
+SELECT *
+FROM Chinook.customers
+WHERE Country = 'Brazil';
+
+--#2.Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+
+SELECT Cust.FirstName, Cust.LastName, Invo.InvoiceId, Invo.InvoiceDate, Invo.BillingCountry
+FROM Chinook.invoices AS Invo
+LEFT JOIN chinook.customers AS cust
+ON Invo.CustomerId = Cust.CustomerId
+Where Invo.BillingCountry = 'Brazil';
+
+--#3.Show the Employees who are Sales Agents.
+SELECT * 
+FROM chinook.employees
+WHERE Title = "Sales Support Agent";
+
+--#4.Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
+
+SELECT emp.LastName, emp.Firstname, inv.InvoiceId
+FROM chinook.Employees emp 
+JOIN chinook.Customers cust ON cust.SupportRepId = emp.EmployeeId
+JOIN chinook.Invoices Inv ON Inv.CustomerId = cust.CustomerId;
+
+--#5.How many Invoices were there in 2009?
+
+SELECT COUNT(*)
+FROM chinook.invoices
+WHERE Invoicedate BETWEEN '2009-01-01' AND '2009-12-31';
+
+--#6.What are the total sales for 2009?
+
+SELECT SUM(total)
+FROM chinook.invoices
+WHERE Invoicedate BETWEEN '2009-01-01' AND '2009-12-31';
